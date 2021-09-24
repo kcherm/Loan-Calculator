@@ -46,7 +46,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textIntRate"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
@@ -81,8 +81,8 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:text="ToggleButton"
-        android:textOff="Loan"
-        android:textOn="Lease"
+        android:textOff="Lease"
+        android:textOn="Loan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

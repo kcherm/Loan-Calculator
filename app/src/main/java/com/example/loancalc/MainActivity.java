@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     public Button button;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -36,19 +36,21 @@ public class MainActivity extends AppCompatActivity {
                 double rate = Double.parseDouble(editIntRate.getText().toString());
                 double len = Double.parseDouble(editLength.getText().toString());
 
-                double mr = rate/12;
+                double dec = rate/100;
+                double mr = dec/12;
                 double pow = Math.pow(1+mr,-len);
 
                 double total = price-down;
                 double payment = mr * total / (1-(pow));
 
-                textOutput.setText("The payment is $" +payment+"/month.");
+
+                textOutput.setText("The payment is $" +String.format("%.2f",payment)+"/month.");
             }
         });
     }
 
 
-    private void initToggleButton(){
+    public void initToggleButton(){
         ToggleButton toggleButton = findViewById(R.id.toggleButton);
         toggleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,19 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setForEditing(boolean enabled){
-//        EditText editPurchase = findViewById(R.id.editPurchase);
-//        EditText editDown = findViewById(R.id.editDown);
-//        EditText editIntRate = findViewById(R.id.editIntRate);
-//        EditText editLength = findViewById(R.id.editLength);
-//        Button button = findViewById(R.id.button);
-
-//
-//        editPurchase.setEnabled(enabled);
-//        editDown.setEnabled(enabled);
-//        editIntRate.setEnabled(enabled);
-//        editLength.setEnabled(enabled);
-//        button.setEnabled(enabled);
-
+    public void setForEditing(boolean enabled){
+          EditText editLength = findViewById(R.id.editLength);
+          editLength.setEnabled(enabled);
     }
 }
